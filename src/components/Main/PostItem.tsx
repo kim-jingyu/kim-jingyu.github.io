@@ -2,15 +2,9 @@
 import styled from '@emotion/styled'
 import React, { FunctionComponent } from 'react'
 import { Link } from 'gatsby'
+import { PostFrontmatterType } from 'types/PostItem.types'
 
-type PostItemProps = {
-  title: string // 포스트 제목
-  date: string // 업로드 날짜
-  categories: string[] // 카테고리 목록
-  summary: string // 포스트 요약
-  thumbnail: string // 썸네일 이미지
-  link: string // 포스트 링크
-}
+type PostItemProps = PostFrontmatterType & { link: string }
 
 const PostItemWrapper = styled(Link)`
   display: flex;
@@ -92,12 +86,12 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
   date,
   categories,
   summary,
-  thumbnail,
+  thumbnail: { publicURL },
   link,
 }) {
   return (
     <PostItemWrapper to={link}>
-      <ThumbnailImage src={thumbnail} alt="Post Item Image" />
+      <ThumbnailImage src={publicURL} alt="Post Item Image" />
 
       <PostItemContent>
         <Title>{title}</Title>
