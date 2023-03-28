@@ -10,6 +10,12 @@ const ProfileImageWrapper = styled.img`
     height: 120px;
     margin-bottom: 30px;
     border-radius: 50%;
+
+    // 태블릿 기준 어비인 768px 이하인 경우 80px로 크기를 줄인다.
+    @media (max-width: 768px){
+        width: 80px;
+        height: 80px;
+    }
 `
 
 const ProfileImage: FunctionComponent = function () {
