@@ -23,9 +23,9 @@ const IndexPage: FunctionComponent = function () {
     <Container>
       <GlobalStyle />
       <Introduction />
-      <CategoryList selectedCategory='Web' categoryList={CATEGORY_LIST} />
+      <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} />
       <PostList />
-      <Footer />      
+      <Footer />
     </Container>
   )
 }

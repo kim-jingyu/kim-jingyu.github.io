@@ -16,32 +16,32 @@ type InfoPageProps = {
 }
 
 const globalStyle = css`
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
-        font-size: 20px;
-    }
+    font-size: 20px;
+  }
 `
 
 const TextStyle = css`
-    font-size: 18px;
-    font-weight: 700;
-    color: gray;
+  font-size: 18px;
+  font-weight: 700;
+  color: gray;
 `
 // Kebab Case 적용
 const Text1 = styled.div<{ disable: boolean }>`
-    font-size: 20px;
-    font-weight: 700;
-    text-decoration: ${({disable}) => (disable ? 'line-through' : 'none')};
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: ${({ disable }) => (disable ? 'line-through' : 'none')};
 `
 
 // Camel Case 적용
 const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
-    fontSize: '15px',
-    color: 'blue',
-    textDecoration: disable ? 'line-through' : 'none',
+  fontSize: '15px',
+  color: 'blue',
+  textDecoration: disable ? 'line-through' : 'none',
 }))
 
 const InfoPage: FunctionComponent<InfoPageProps> = function ({
@@ -53,10 +53,10 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
 }) {
   return (
     <div>
-        <Global styles={globalStyle} />
-        <div css={TextStyle}>{title}</div> 
-        <Text1 disable={true}>{description}</Text1>
-        <Text2 disable={true}>{author}</Text2>
+      <Global styles={globalStyle} />
+      <div css={TextStyle}>{title}</div>
+      <Text1 disable={true}>{description}</Text1>
+      <Text2 disable={true}>{author}</Text2>
     </div>
   )
 }

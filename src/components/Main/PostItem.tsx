@@ -1,42 +1,42 @@
 // 포스트 아이템
-import styled from "@emotion/styled";
-import React, {FunctionComponent} from "react";
-import { Link } from "gatsby";
+import styled from '@emotion/styled'
+import React, { FunctionComponent } from 'react'
+import { Link } from 'gatsby'
 
 type PostItemProps = {
-    title: string               // 포스트 제목 
-    date: string                // 업로드 날짜
-    categories: string[]        // 카테고리 목록
-    summary: string             // 포스트 요약
-    thumbnail: string           // 썸네일 이미지
-    link: string                // 포스트 링크
+  title: string // 포스트 제목
+  date: string // 업로드 날짜
+  categories: string[] // 카테고리 목록
+  summary: string // 포스트 요약
+  thumbnail: string // 썸네일 이미지
+  link: string // 포스트 링크
 }
 
 const PostItemWrapper = styled(Link)`
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-    transition: 0.3s box-shadow;
-    cursor: pointer;
-    
-    &:hover{
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  transition: 0.3s box-shadow;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
 `
 
 const ThumbnailImage = styled.img`
-    width: 100%;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
 `
 
 const PostItemContent = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 `
 const Title = styled.div`
   display: -webkit-box;
@@ -88,29 +88,29 @@ const Summary = styled.div`
 `
 
 const PostItem: FunctionComponent<PostItemProps> = function ({
-    title,
-    date,
-    categories,
-    summary,
-    thumbnail,
-    link,
-}){
-    return (
+  title,
+  date,
+  categories,
+  summary,
+  thumbnail,
+  link,
+}) {
+  return (
     <PostItemWrapper to={link}>
-        <ThumbnailImage src={thumbnail} alt="Post Item Image" />
+      <ThumbnailImage src={thumbnail} alt="Post Item Image" />
 
-        <PostItemContent>
-            <Title>{title}</Title>
-            <Date>{date}</Date>
-            <Category>
-                {categories.map(category => (
-                    <CategoryItem key={category}>{category}</CategoryItem>
-                ))}
-            </Category>
-            <Summary>{summary}</Summary>
-        </PostItemContent>
+      <PostItemContent>
+        <Title>{title}</Title>
+        <Date>{date}</Date>
+        <Category>
+          {categories.map(category => (
+            <CategoryItem key={category}>{category}</CategoryItem>
+          ))}
+        </Category>
+        <Summary>{summary}</Summary>
+      </PostItemContent>
     </PostItemWrapper>
-    )
+  )
 }
 
 export default PostItem
